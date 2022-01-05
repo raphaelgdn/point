@@ -1,25 +1,28 @@
 #!/usr/bin/env groovy
 pipeline {
-    agent {
-        label 'POWER'
-    }
+    agent any
     stages {
-        stage('start VM') {
+        stage('start VM'){
+            agent {
+                label 'POWER'
+            }   
             steps {
                 sh 'virsh -c qemu:///system start WORK'
             }
-        }
+        }   
+    
         stage ('verify the VM is running') {
+            agent {
+                label 'POWER'
+            }
             steps {
                 ping '192.168.0.112'
             }
         }
-    }
-    node {
-        label 'WORK'
-    }
-    stages {
         stage('Update time clock') {
+            agent {
+                label 'WORK'
+            }
             steps {
                 cmd 'W32tm /resync /force'
             }
