@@ -39,7 +39,7 @@ pipeline {
                 label 'WORK'
             }
             steps{
-                powershell 'start "C:\Users\work\Downloads\tinytask.exe" "C:\Users\\work\Downloads\treta.rec"'
+                powershell 'start "C:\Users\work\Downloads\tinytask.exe" "C:\Users\work\Downloads\treta.rec"'
             }
         }
     }
