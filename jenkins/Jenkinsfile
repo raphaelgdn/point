@@ -24,7 +24,8 @@ pipeline {
                 label 'WORK'
             }
             steps{
-                commmand 'W32tm /resync /force'
+                powershell 'net start w32time'
+                powershell 'W32tm /resync /force'
             }
         }
     }
