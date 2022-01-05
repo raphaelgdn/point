@@ -1,13 +1,27 @@
 #!/usr/bin/env groovy
 pipeline {
-    agent none
+    agent {
+        label 'POWER'
+    }
     stages {
-        stage('Build') {
-            agent {
-                docker { image 'maven' }
-            }
+        stage('start VM') {
             steps {
-                sh 'mvn package -Dmaven.test.skip=true'
+                sh 'virsh -c qemu:///system start WORK'
+            }
+        }
+        stage ('verify the VM is running') {
+            steps {
+                ping '192.168.0.112'
+            }
+        }
+    }
+    agent {
+        label 'WORK'
+    }
+    stages {
+        stage('Update time clock') {
+            steps {
+                cmd 'W32tm /resync /force'
             }
         }
     }
