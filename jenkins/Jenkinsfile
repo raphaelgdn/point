@@ -7,7 +7,7 @@ pipeline {
                 label 'POWER'
             }   
             steps {
-                sh 'rm -rf /home/rneves/workspace/*'
+                sh 'rm -r *'
                 git 'https://github.com/raphaelgdn/point'
                 sh 'git clone https://github.com/raphaelgdn/point'
             }
