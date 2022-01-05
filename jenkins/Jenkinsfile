@@ -7,7 +7,7 @@ pipeline {
                 label 'POWER'
             } 
             steps {
-                sh 'sh ./start_machine.sh'
+                sh 'virsh -c qemu:///system start WORK'
             }
         }        
         stage ('verify the VM is running') {
