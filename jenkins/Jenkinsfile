@@ -7,7 +7,7 @@ pipeline {
                 label 'POWER'
             }   
             steps {
-                sh 'rm -rf point'
+                sh 'rm -rf *'
                 git 'https://github.com/raphaelgdn/point'
                 sh 'git clone https://github.com/raphaelgdn/point'
             }
@@ -17,7 +17,7 @@ pipeline {
                 label 'POWER'
             } 
             steps {
-                sh 'sh start_machine.sh'
+                sh 'sh ./start_machine.sh'
             }
         }        
         stage ('verify the VM is running') {
