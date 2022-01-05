@@ -2,16 +2,6 @@
 pipeline {
     agent any
     stages {
-        stage('Clean and prep workspace'){
-            agent {
-                label 'POWER'
-            }   
-            steps {
-                sh 'rm -r *'
-                git 'https://github.com/raphaelgdn/point'
-                sh 'git clone https://github.com/raphaelgdn/point'
-            }
-        }   
         stage('Start VM WORK') {
             agent {
                 label 'POWER'
