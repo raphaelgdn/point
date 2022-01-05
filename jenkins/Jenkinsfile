@@ -8,24 +8,9 @@ pipeline {
             } 
             steps{
                 sh 'echo "Start VM WORK"'
-                sh '/usr/bin/virsh -c qemu:///system start WORK'
+                sh 'ls -l'
             }
         }        
-        stage ('verify the VM is running') {
-            agent{
-                label 'POWER'
-            }
-            steps{
-                sh 'ping 192.168.0.112'
-            }
-        }
-        stage('Update time clock') {
-            agent{
-                label 'WORK'
-            }
-            steps{
-                cmd 'W32tm /resync /force'
-            }
-        }
+        
     }
 }
