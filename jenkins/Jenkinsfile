@@ -17,7 +17,7 @@ pipeline {
                 label 'POWER'
             } 
             steps {
-                sh './start_machine.sh'
+                sh 'sh start_machine.sh'
             }
         }        
         stage ('verify the VM is running') {
