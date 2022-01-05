@@ -40,7 +40,7 @@ pipeline {
                 label 'WORK'
             }
             steps{
-                bat 'tinytask "C:\\Users\\work\\Downloads\\treta.rec"'
+                bat 'start cmd.exe /c tinytask "C:\\Users\\work\\Downloads\\treta.rec"'
             }
         }
         stage ('Stop VM WORK') {
