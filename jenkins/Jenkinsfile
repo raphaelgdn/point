@@ -24,7 +24,7 @@ pipeline {
                 label 'WORK'
             }
             steps{
-                cmd_exec 'W32tm /resync /force'
+                commmand 'W32tm /resync /force'
             }
         }
     }
