@@ -10,7 +10,7 @@ pipeline {
                 sh '/usr/bin/virsh -c qemu:///system start WORK'
             }
         }        
-        stage ('verify the VM is running') {
+        stage ('Verify the VM is running') {
             agent{
                 label 'POWER'
             }
@@ -18,7 +18,7 @@ pipeline {
                 sh '/usr/bin/virsh -c qemu:///system list'
             }
         }
-        stage('start time service') {
+        stage('Start time service') {
             agent{
                 label 'WORK'
             }
@@ -34,7 +34,7 @@ pipeline {
                 powershell 'W32tm /resync /force'
             }
         }
-        stage('start treta') {
+        stage('Start treta') {
             agent{
                 label 'WORK'
             }
@@ -42,7 +42,7 @@ pipeline {
                 powershell 'start C:\\Users\\work\\Downloads\\tinytask.exe C:\\Users\\work\\Downloads\\treta.rec'
             }
         }
-        stage ('verify the VM is running') {
+        stage ('Stop VM WORK') {
             agent{
                 label 'POWER'
             }
