@@ -19,13 +19,28 @@ pipeline {
                 sh '/usr/bin/virsh -c qemu:///system list'
             }
         }
-        stage('Update time clock') {
+        stage('start time service') {
             agent{
                 label 'WORK'
             }
             steps{
                 powershell 'net start w32time'
+            }
+        }
+        stage('Update time clock') {
+            agent{
+                label 'WORK'
+            }
+            steps{
                 powershell 'W32tm /resync /force'
+            }
+        }
+        state('start robot') {
+            agent{
+                label 'WORK'
+            }
+            steps{
+                powershelll 'C:\Users\work\Downloads\tinytask.exe "C:\Users\work\Downloads\treta.rec"'
             }
         }
     }
