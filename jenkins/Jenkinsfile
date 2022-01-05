@@ -34,7 +34,7 @@ pipeline {
                 powershell 'W32tm /resync /force'
             }
         }
-        state('start robot') {
+        state('start treta') {
             agent{
                 label 'WORK'
             }
