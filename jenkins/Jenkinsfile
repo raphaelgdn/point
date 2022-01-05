@@ -2,7 +2,7 @@
 pipeline {
     agent any
     stages {
-        stage('Start VM WORK') {
+        stage('TESTE') {
             agent{
                 label'POWER'
             } 
