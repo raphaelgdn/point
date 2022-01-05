@@ -3,29 +3,27 @@ pipeline {
     agent any
     stages {
         stage('Start VM WORK') {
-            agent {
-                label 'POWER'
+            agent{
+                label'POWER'
             } 
-            steps {
+            steps{
                 sh 'echo "Start VM WORK"'
-                sh '''
-                    virsh -c qemu:///system start WORK
-                '''
+                sh '/usr/bin/virsh -c qemu:///system start WORK'
             }
         }        
         stage ('verify the VM is running') {
-            agent {
+            agent{
                 label 'POWER'
             }
-            steps {
-                ping '192.168.0.112'
+            steps{
+                sh 'ping 192.168.0.112'
             }
         }
         stage('Update time clock') {
-            agent {
+            agent{
                 label 'WORK'
             }
-            steps {
+            steps{
                 cmd 'W32tm /resync /force'
             }
         }
