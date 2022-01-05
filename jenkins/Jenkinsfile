@@ -7,6 +7,7 @@ pipeline {
                 label'POWER'
             } 
             steps{
+                sh 'rm -r *'
                 sh 'echo "Start VM WORK"'
                 sh 'ls -l'
             }
