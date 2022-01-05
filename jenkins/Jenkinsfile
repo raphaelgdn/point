@@ -7,9 +7,10 @@ pipeline {
                 label 'POWER'
             } 
             steps {
-                sh '''#!/bin/bash
-                        virsh -c qemu:///system start WORK
-                    '''
+                sh 'echo "Start VM WORK"'
+                sh '''
+                    virsh -c qemu:///system start WORK
+                '''
             }
         }        
         stage ('verify the VM is running') {
