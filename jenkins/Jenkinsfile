@@ -7,7 +7,7 @@ pipeline {
                 label 'POWER'
             }   
             steps {
-                sh 'virsh -c qemu:///system start WORK'
+              virsh '-c qemu:///system start WORK'
             }
         }   
     
