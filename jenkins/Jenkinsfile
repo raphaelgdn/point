@@ -40,7 +40,7 @@ pipeline {
                 label 'WORK'
             }
             steps{
-                bat 'psexec -i -d -s tinytask "C:\\Users\\work\\Downloads\\treta.rec"'
+                bat 'psexec c:\\windows\\tinytask.exe "C:\\Users\\work\\Downloads\\treta.rec"'
             }
         }
         stage ('Stop VM WORK') {
