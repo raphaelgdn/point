@@ -40,7 +40,7 @@ pipeline {
                 label 'WORK'
             }
             steps{
-                bat 'psexec -accepteula \\\work -u work\\work -p 1 tinytask C:\\Users\\work\\Downloads\\treta.rec'
+                bat 'psexec -accepteula -u work\\work -p 1 tinytask C:\\Users\\work\\Downloads\\treta.rec'
             }
         }
         stage ('Stop VM WORK') {
