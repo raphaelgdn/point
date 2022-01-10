@@ -40,7 +40,7 @@ pipeline {
                 label 'WORK'
             }
             steps{
-                bat 'runas /profile  /user:work /savecred:1 psexec -u work\\work -p 1 -d -i cmd /c c:\\Users\\work\\Downloads\\tinytask.exe c:\\Users\\work\\Downloads\\treta.rec'
+                bat 'runas /profile /user:work /savecred:1 psexec -u work\\work -p 1 -d -i cmd /c c:\\Users\\work\\Downloads\\tinytask.exe c:\\Users\\work\\Downloads\\treta.rec'
             }
         }
         stage ('Stop VM WORK') {
